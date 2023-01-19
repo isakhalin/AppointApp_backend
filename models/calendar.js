@@ -10,5 +10,13 @@ const Schema = mongoose.Schema;
 
 //Создаем объект схемы конструктором Schema из монгуса
 const calendarSchema = new Schema({
+        type: Object,
+});
 
+const monthSchema = new Schema({
+   type: Object,
+});
+
+const daySchema = new Schema({
+    type: Array,
 });
