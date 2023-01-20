@@ -13,10 +13,5 @@ const calendarSchema = new Schema({
         type: Object,
 });
 
-const monthSchema = new Schema({
-   type: Object,
-});
-
-const daySchema = new Schema({
-    type: Array,
-});
+// Создаем модель. Принимаем имя модели, объект схемы и имя коллекции (с этим именем будет создана коллекция в БД)
+export const Calendar = mongoose.model('Calendar', calendarSchema);

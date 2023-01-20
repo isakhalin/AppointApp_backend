@@ -5,6 +5,9 @@ import morgan from 'morgan';    // Подключаем библиотеку л�
 import cors from 'cors';        // Модуль для управления разрешениями доступа к бекенду
 import {createPath} from "./helpers/create-path.js";
 
+// Роуты
+import {router as calendarApiRoutes} from "./routes/api-calendar-routes.js";
+
 // Запуск сервера
 const app = express();
 app.listen(process.env.PORT, (error) => {
@@ -36,7 +39,7 @@ app.use(cors({
 }));
 
 // Подключение модулей с роутами
-//app.use(applicationsApiRoutes);
+app.use(calendarApiRoutes);
 
 //// Корневой маршрут. Тут не нужен т.к. експресс по умолчанию отдает index.html из папки 'build'
 // app.get('/', (req, res) => {

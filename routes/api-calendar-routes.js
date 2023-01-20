@@ -2,11 +2,8 @@ import express from 'express';
 
 // Подключение контроллеров
 import {
-    getAllApplications,
-    postApplication,
-    updateApplication,
-    deleteApplication,
-} from '../controllers/api-applications-controller.js';
+    getCalendar,
+} from '../controllers/api-calendar-controller.js';
 
 export const router = express.Router(); // Создаем экземпляр роутера
 
