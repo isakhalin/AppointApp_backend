@@ -14,4 +14,4 @@ const calendarSchema = new Schema({
 });
 
 // Создаем модель. Принимаем имя модели, объект схемы и имя коллекции (с этим именем будет создана коллекция в БД)
-export const Calendar = mongoose.model('Calendar', calendarSchema);
+export const Calendar = mongoose.model('Calendar', calendarSchema, 'calendar');
