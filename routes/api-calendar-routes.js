@@ -2,6 +2,7 @@ import express from 'express';
 
 // Подключение контроллеров
 import {
+    addVKS,
     getCalendar,
 } from '../controllers/api-calendar-controller.js';
 
@@ -9,6 +10,7 @@ export const router = express.Router(); // Создаем экземпляр р�
 
 // Возвращаем на клиент календарь
 router.get('/api/calendar', getCalendar);
+router.post('/api/calendar/add', addVKS);
 
 // // Возвращаем на клиент все апликейшены из контроллера
 // router.get('/api/allapplications', getAllApplications);
