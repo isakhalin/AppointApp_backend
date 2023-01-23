@@ -9,9 +9,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 //Создаем объект схемы конструктором Schema из монгуса
-// const calendarSchema = new Schema({
-//         type: Object,
-// });
 const calendarSchema = new Schema({
         data: {
             type: Object

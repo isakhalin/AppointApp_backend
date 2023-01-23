@@ -20,11 +20,11 @@ export const getCalendar = (req, res) => {
         .catch((error) => handleError(res, error))
 };
 
-export const addVKS = async (req, res) => {
-    let vks = req.body;
-    let year = req.params.year
-    let month = req.params.month
-    let day = req.params.day
+export const addVks = async (req, res) => {
+    const vks = req.body;
+    const year = req.params.year
+    const month = req.params.month
+    const day = req.params.day
     console.log('vks', vks)
     // let getCalendarAndReplace = async (vks)=> {
     //     const searchElement = await Calendar.find();
@@ -55,11 +55,11 @@ export const addVKS = async (req, res) => {
         .catch((error) => handleError(res, error));
 }
 
-export const removeVKS = async (req, res) => {
-    let vks = req.body;
-    let year = req.params.year
-    let month = req.params.month
-    let day = req.params.day
+export const removeVks = async (req, res) => {
+    const vks = req.body;
+    const year = req.params.year
+    const month = req.params.month
+    const day = req.params.day
     console.log('vks', vks)
     // let getCalendarAndReplace = async (vks)=> {
     //     const searchElement = await Calendar.find();
@@ -82,10 +82,14 @@ export const removeVKS = async (req, res) => {
         .then(async (calendar) => {
             let tempCalendar = calendar.toObject().data;
             // let vks = req.body;
-            tempCalendar[year][month][day].push(vks)
+            tempCalendar[year][month][day].filter((el) => el.id !== vks.id);
             calendar.data = tempCalendar;
             await calendar.save();
             res.status(200).json(calendar);
         })
         .catch((error) => handleError(res, error));
+}
+
+export const editVks = (req, res) => {
+
 }
