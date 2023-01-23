@@ -9,9 +9,15 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 //Создаем объект схемы конструктором Schema из монгуса
+// const calendarSchema = new Schema({
+//         type: Object,
+// });
 const calendarSchema = new Schema({
-        type: Object,
-});
+        data: {
+            type: Object
+        }
+    }
+);
 
 // Создаем модель. Принимаем имя модели, объект схемы и имя коллекции (с этим именем будет создана коллекция в БД)
-export const Calendar = mongoose.model('Calendar', calendarSchema);
+export const Calendar = mongoose.model('Calendar', calendarSchema, 'test');
