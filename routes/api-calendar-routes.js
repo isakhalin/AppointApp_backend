@@ -11,9 +11,13 @@ import {
 export const router = express.Router(); // Создаем экземпляр роутера
 
 // Возвращаем на клиент календарь
-router.get('/api/calendar', getCalendar);
-router.post('/api/calendar/add/:year/:month/:day', addVks);
-router.delete('/api/calendar/remove/:year/:month/:day/:id', removeVks);
+router.get('/api/v1/getCalendar', getCalendar);
+
+// Метод записывает в БД новое мероприятие
+router.post('/api/v1/calendar/add/:year/:month/:day', addVks);
+
+// Метод удаляет из БД мероприятие
+router.delete('/api/v1/calendar/remove/:year/:month/:day/:id', removeVks);
 
 // // Возвращаем на клиент все апликейшены из контроллера
 // router.get('/api/allapplications', getAllApplications);

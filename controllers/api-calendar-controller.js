@@ -25,7 +25,6 @@ export const addVks = async (req, res) => {
     const year = req.params.year
     const month = req.params.month
     const day = req.params.day
-    console.log('vks', vks)
     // let getCalendarAndReplace = async (vks)=> {
     //     const searchElement = await Calendar.find();
     //     const nativeObject = searchElement[0].toObject();
@@ -56,11 +55,12 @@ export const addVks = async (req, res) => {
 }
 
 export const removeVks = async (req, res) => {
-    const vks = req.body;
+    // const vks = req.body;
     const year = req.params.year
     const month = req.params.month
     const day = req.params.day
-    console.log('vks', vks)
+    const id = req.params.id
+    // console.log('vks', vks)
     // let getCalendarAndReplace = async (vks)=> {
     //     const searchElement = await Calendar.find();
     //     const nativeObject = searchElement[0].toObject();
@@ -82,8 +82,10 @@ export const removeVks = async (req, res) => {
         .then(async (calendar) => {
             let tempCalendar = calendar.toObject().data;
             // let vks = req.body;
-            tempCalendar[year][month][day].filter((el) => el.id !== vks.id);
-            calendar.data = tempCalendar;
+            const qwe = tempCalendar[year][month][day].filter((el) => el.id !== id);
+            console.log("QWE", qwe)
+            calendar.data[year][month][day] = qwe;
+            console.log("cal.data", calendar.data[year][month][day])
             await calendar.save();
             res.status(200).json(calendar);
         })
