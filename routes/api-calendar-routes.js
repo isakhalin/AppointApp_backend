@@ -3,14 +3,15 @@ import express from 'express';
 // Подключение контроллеров
 import {
     addVKS,
-    getCalendar,
+    getCalendar, removeVKS,
 } from '../controllers/api-calendar-controller.js';
 
 export const router = express.Router(); // Создаем экземпляр роутера
 
 // Возвращаем на клиент календарь
 router.get('/api/calendar', getCalendar);
-router.post('/api/calendar/add', addVKS);
+router.post('/api/calendar/add/:year/:month/:day', addVKS);
+router.delete('/api/calendar/remove/:year/:month/:day/:id', removeVKS);
 
 // // Возвращаем на клиент все апликейшены из контроллера
 // router.get('/api/allapplications', getAllApplications);
