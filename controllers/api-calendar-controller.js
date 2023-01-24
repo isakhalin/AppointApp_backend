@@ -60,32 +60,13 @@ export const removeVks = async (req, res) => {
     const month = req.params.month
     const day = req.params.day
     const id = req.params.id
-    // console.log('vks', vks)
-    // let getCalendarAndReplace = async (vks)=> {
-    //     const searchElement = await Calendar.find();
-    //     const nativeObject = searchElement[0].toObject();
-    //     nativeObject['2023']['2']['1'].push(vks)
-    //     console.log('nativeObject',nativeObject)
-    //     const test = await Calendar.findOne({_id:nativeObject._id})
-    //     console.log('test', test)
-    //     // return nativeObject
-    //     return await Calendar.create(vks)
-    //     // return await Calendar.findOneAndReplace({}, {test:test}, {new:true})
-    //     // return Calendar.findOneAndReplace({_id:nativeObject._id}, {test:'test'}, {new:true})
-    // }
-    // let calendar = await getCalendarAndReplace(vks)
-    // console.log('calendar',calendar)
-    //         res.status(200).json(calendar);
 
     Calendar
         .findOne({})
         .then(async (calendar) => {
             let tempCalendar = calendar.toObject().data;
-            // let vks = req.body;
-            const qwe = tempCalendar[year][month][day].filter((el) => el.id !== id);
-            console.log("QWE", qwe)
-            calendar.data[year][month][day] = qwe;
-            console.log("cal.data", calendar.data[year][month][day])
+            tempCalendar[year][month][day] = tempCalendar[year][month][day].filter((el) => el.id !== id);
+            calendar.data = tempCalendar;
             await calendar.save();
             res.status(200).json(calendar);
         })
