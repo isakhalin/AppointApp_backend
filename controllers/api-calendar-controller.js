@@ -61,22 +61,6 @@ export const removeVKS = async (req, res) => {
     let month = req.params.month
     let day = req.params.day
     console.log('vks', vks)
-    // let getCalendarAndReplace = async (vks)=> {
-    //     const searchElement = await Calendar.find();
-    //     const nativeObject = searchElement[0].toObject();
-    //     nativeObject['2023']['2']['1'].push(vks)
-    //     console.log('nativeObject',nativeObject)
-    //     const test = await Calendar.findOne({_id:nativeObject._id})
-    //     console.log('test', test)
-    //     // return nativeObject
-    //     return await Calendar.create(vks)
-    //     // return await Calendar.findOneAndReplace({}, {test:test}, {new:true})
-    //     // return Calendar.findOneAndReplace({_id:nativeObject._id}, {test:'test'}, {new:true})
-    // }
-    // let calendar = await getCalendarAndReplace(vks)
-    // console.log('calendar',calendar)
-    //         res.status(200).json(calendar);
-
     Calendar
         .findOne({})
         .then(async (calendar) => {
