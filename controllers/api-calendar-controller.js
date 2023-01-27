@@ -85,6 +85,7 @@ export const editEvent = (req, res) => {
                 }
             })
             calendar.data = tempCalendar;
+            await calendar.save();
             res.status(200).json(calendar);
         })
         .catch((error) => handleError(res, error));

@@ -4,6 +4,7 @@ import 'dotenv/config';         // Библиотека для работы с .
 import morgan from 'morgan';    // Подключаем библиотеку логгера
 import cors from 'cors';        // Модуль для управления разрешениями доступа к бекенду
 import {createPath} from "./helpers/create-path.js";
+import {accessList} from "./constants/constants.js"
 
 // Роуты
 import {router as calendarApiRoutes} from "./routes/api-calendar-routes.js";
@@ -28,10 +29,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(express.static('build'));   //Каталог, который будет доступным на чтение всем по HTTP.
 
 // Разрешения для CORS-политики
-const whitelist = [
-    'http://localhost:3000',
-    'http://172.16.255.31:3000'
-];
+const whitelist = accessList;
 
 app.use(cors({
     credentials: true,
