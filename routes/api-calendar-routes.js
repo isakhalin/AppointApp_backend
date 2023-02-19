@@ -1,6 +1,4 @@
 import express from 'express';
-
-// Подключение контроллеров
 import {
     getCalendar,
     addEvent,
@@ -8,7 +6,7 @@ import {
     editEvent
 } from '../controllers/index.js';
 
-export const router = express.Router(); // Создаем экземпляр роутера
+export const router = express.Router();
 
 // Возвращаем на клиент календарь
 router.get('/api/v1/getCalendar', getCalendar);
