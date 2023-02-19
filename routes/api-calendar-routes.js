@@ -6,7 +6,7 @@ import {
     addEvent,
     removeEvent,
     editEvent
-} from '../controllers';
+} from '../controllers/index.js';
 
 export const router = express.Router(); // Создаем экземпляр роутера
 

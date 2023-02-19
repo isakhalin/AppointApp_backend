@@ -3,11 +3,11 @@ import mongoose from 'mongoose';    // Библиотека для взаимо�
 import 'dotenv/config';         // Библиотека для работы с .env (хранение информации о подключении к БД)
 import morgan from 'morgan';    // Подключаем библиотеку логгера
 import cors from 'cors';        // Модуль для управления разрешениями доступа к бекенду
-import {createPath} from './helpers';
-import {accessList} from './constants';
+import {createPath} from './helpers/index.js';
+import {accessList} from './constants/index.js';
 
 // Роуты
-import {router as calendarApiRoutes} from './routes/api-calendar-routes.js';
+import {router as calendarApiRoutes} from './routes/index.js';
 
 // Запуск сервера
 const app = express();

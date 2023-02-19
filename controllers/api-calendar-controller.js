@@ -1,5 +1,5 @@
 // В контроллер подключаем модели
-import {Calendar} from '../models/calendar.js';
+import {Calendar} from '../models/index.js';
 
 /** Обработчик исключений
  * @param res Ссылка на метод отправки ответа клиенту
