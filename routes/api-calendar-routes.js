@@ -6,7 +6,7 @@ import {
     addEvent,
     removeEvent,
     editEvent
-} from '../controllers/api-calendar-controller.js';
+} from '../controllers';
 
 export const router = express.Router(); // Создаем экземпляр роутера
 
