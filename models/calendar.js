@@ -4,7 +4,7 @@
 // 4. Создаем модель на основе объекта схемы
 
 // Достаем конструктор схемы из монгуса
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 

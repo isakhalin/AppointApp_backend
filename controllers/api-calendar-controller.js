@@ -1,5 +1,5 @@
 // В контроллер подключаем модели
-import {Calendar} from "../models/calendar.js";
+import {Calendar} from '../models/calendar.js';
 
 /** Обработчик исключений
  * @param res Ссылка на метод отправки ответа клиенту
@@ -17,7 +17,7 @@ export const getCalendar = (req, res) => {
         .then((calendar) => {
             res.status(200).json(calendar[0].data);
         })
-        .catch((error) => handleError(res, error))
+        .catch((error) => handleError(res, error));
 };
 
 export const addEvent = (req, res) => {
@@ -41,13 +41,13 @@ export const addEvent = (req, res) => {
                 tempCalendar[year][month][day] = [];
             }
 
-            tempCalendar[year][month][day].push(vks)
+            tempCalendar[year][month][day].push(vks);
             calendar.data = tempCalendar;
             await calendar.save();
             res.status(200).json(calendar);
         })
         .catch((error) => handleError(res, error));
-}
+};
 
 export const removeEvent = (req, res) => {
     const year = req.params.year;
@@ -65,7 +65,7 @@ export const removeEvent = (req, res) => {
             res.status(200).json(calendar);
         })
         .catch((error) => handleError(res, error));
-}
+};
 
 export const editEvent = (req, res) => {
     const event = req.body;
@@ -89,4 +89,4 @@ export const editEvent = (req, res) => {
             res.status(200).json(calendar);
         })
         .catch((error) => handleError(res, error));
-}
+};
